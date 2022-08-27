@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.gallery {
+				--n: 1; /* number of rows*/
+				--m: 5; /* number of columns */
+				--g: 0px; /* control the gap */
+				--f: 0.8; /* control the scale factor */
+
+				display: grid;
+				gap: var(--g);
+				width: 100vw;
+				height: 100vh;
+				grid-template-columns: repeat(var(--m), auto);
+			}
+
+			.image-container {
+				display: flex;
+				position: relative;
+				width: 0;
+				height: 0;
+				min-height: 100%;
+				min-width: 100%;
+				cursor: pointer;
+				filter: grayscale(50%);
+				transition: 0.35s linear;
+			}
+
+			.images {
+				min-height: 100%;
+				min-width: 100%;
+				object-fit: cover;
+			}
+
+			.image-container:hover {
+				filter: grayscale(0);
+				width: calc(100vh * var(--f) / var(--n));
+				height: calc(100vw * var(--f) / var(--m));
+			}
+
+			body {
+				margin: 0;
+			}
+
+			.image-container::after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-color: purple;
+				mix-blend-mode: soft-light;
+				opacity: 0.9;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 100;
+			}
+
+			.image-container:hover::after {
+				opacity: 0;
+				cursor: pointer;
+				transition: 0.35s linear;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="gallery">
+			<div class="image-container">
+				<img
+					class="images"
+					src="https://lh3.googleusercontent.com/pw/AL9nZEVvEPapCS_rsDEwVIVBPIMeV07V4EJ0F2KzIH1DB7o5zPZGfh40eJ_QcSaC1zQMFlCoXfXLMCNFn0mOS7YI615XmvXYfzqnp7KEOGNyEHTwWdznCbC3Ri0Vx24e1njRQWC5cHgdUH0lIsW-Y_EXikoVbA=w1482-h1092-no?authuser=0"
+				/>
+			</div>
+			<div class="image-container">
+				<img
+					class="images"
+					src="https://lh3.googleusercontent.com/pw/AL9nZEXQB6K_sqa3X4-Rg8wYC34bijoTLsHEHM2_KCiLSeJ7cRyQtKFQGsS6YcNIwEzMae8o9h9QertjVRV1L9s0CfS5N4ITv4etkOiJAiVNf-QcPs7OITpcXnn7oebqvezisx3PhQBVPNLVwBCAvyvdvvre-A=w1699-h1092-no?authuser=0"
+				/>
+			</div>
+			<div class="image-container">
+				<img
+					class="images"
+					src="https://lh3.googleusercontent.com/pw/AL9nZEUV2kxFkwoBM1wEBdnnMA0jdCxiPAyptntBiEcvX6yBtUE0Smy6j153L-Ill8T3-_gw7163OLfApWa_J-fxEbyjgDdgjnX-J85QTHHAt7xGNbz_vakWQh-BqC-IWV_GXf3zCbOQaMi4kchkbhZ2Bnkwsg=w1743-h1092-no?authuser=0"
+				/>
+			</div>
+			<div class="image-container">
+				<img
+					class="images"
+					src="https://lh3.googleusercontent.com/pw/AL9nZEUugEpOYzJJZI4nlVWhz712d5OGEENzoQOTg_ojazljmm-LPUWu6Y8JB8wfDpWsLW96WGUGrYOYMNV-pVQ1wig_KoWV0Zx0MX08xFJP-eyYP6k_uvY565Y1F0aoyEtXPWAlt4vbPRxZ9E8gEpYvvsNU-A=w1663-h1092-no?authuser=0"
+				/>
+			</div>
+			<div class="image-container">
+				<img
+					class="images"
+					src="https://lh3.googleusercontent.com/pw/AL9nZEUn5pYgYjAEo93r4youCMDlUm-wbzCfJGQc4xQobq1ZRkAfNiDTi50K7QmMEa06xkpMr7mJXKBPgilBNVKnrusWM1nOMhOt2y6U7AKArR5as1mODbFxGAfwms8F8DwmPcP5h_CIYZUusgw7ER_mw2xfCA=w1744-h1092-no?authuser=0"
+				/>
+			</div>
+		</div>
+	</body>
+</html>
