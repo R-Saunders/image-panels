@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.gallery {
+				--s: 200px; /* control the size */
+				--g: 10px; /* control the gap */
+				display: grid;
+				margin: calc(var(--s) + var(--g));
+			}
+
+			.gallery > div {
+				grid-area: 1/1;
+				width: var(--s);
+				height: var(--s);
+				object-fit: cover;
+				clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+				transform: translate(var(--_x, 0), var(--_y, 0)) scale(var(--_t, 1));
+				cursor: pointer;
+				filter: grayscale(50%);
+				transition: 0.2s linear;
+			}
+			.gallery > div:hover {
+				filter: grayscale(0);
+				z-index: 1;
+				--_t: 1.2;
+			}
+
+			.gallery > div:nth-child(1) {
+				--_y: calc(-100% - var(--g));
+			}
+			.gallery > div:nth-child(7) {
+				--_y: calc(100% + var(--g));
+			}
+			.gallery > div:nth-child(3),
+			.gallery > div:nth-child(5) {
+				--_x: calc(-75% - 0.87 * var(--g));
+			}
+			.gallery > div:nth-child(4),
+			.gallery > div:nth-child(6) {
+				--_x: calc(75% + 0.87 * var(--g));
+			}
+			.gallery > div:nth-child(3),
+			.gallery > div:nth-child(4) {
+				--_y: calc(-50% - 0.5 * var(--g));
+			}
+			.gallery > div:nth-child(5),
+			.gallery > div:nth-child(6) {
+				--_y: calc(50% + 0.5 * var(--g));
+			}
+
+			body {
+				margin: 0;
+				min-height: 100vh;
+				display: grid;
+				place-content: center;
+				background: #aabbfb;
+			}
+
+			.image-container {
+				width: 100%;
+				position: relative;
+			}
+
+			.image-container::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				background-color: purple;
+				mix-blend-mode: soft-light;
+				opacity: 0.9;
+				transition: 0.2s linear;
+			}
+
+			.image-container:hover::after {
+				opacity: 0;
+			}
+
+			.image-container > img {
+				object-fit: cover;
+				height: 100%;
+				width: 100%;
+			}
+
+			.gallery-container {
+				display: flex;
+				max-width: 100vw;
+				max-height: 100vh;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="gallery-container">
+			<div class="gallery">
+				<div class="image-container">
+					<img
+						src="https://lh3.googleusercontent.com/pw/AL9nZEXQB6K_sqa3X4-Rg8wYC34bijoTLsHEHM2_KCiLSeJ7cRyQtKFQGsS6YcNIwEzMae8o9h9QertjVRV1L9s0CfS5N4ITv4etkOiJAiVNf-QcPs7OITpcXnn7oebqvezisx3PhQBVPNLVwBCAvyvdvvre-A=w1699-h1092-no?authuser=0"
+					/>
+				</div>
+				<div class="image-container">
+					<img
+						src="https://lh3.googleusercontent.com/pw/AL9nZEUV2kxFkwoBM1wEBdnnMA0jdCxiPAyptntBiEcvX6yBtUE0Smy6j153L-Ill8T3-_gw7163OLfApWa_J-fxEbyjgDdgjnX-J85QTHHAt7xGNbz_vakWQh-BqC-IWV_GXf3zCbOQaMi4kchkbhZ2Bnkwsg=w1743-h1092-no?authuser=0"
+					/>
+				</div>
+				<div class="image-container">
+					<img
+						src="https://lh3.googleusercontent.com/pw/AL9nZEVvEPapCS_rsDEwVIVBPIMeV07V4EJ0F2KzIH1DB7o5zPZGfh40eJ_QcSaC1zQMFlCoXfXLMCNFn0mOS7YI615XmvXYfzqnp7KEOGNyEHTwWdznCbC3Ri0Vx24e1njRQWC5cHgdUH0lIsW-Y_EXikoVbA=w1482-h1092-no?authuser=0"
+					/>
+				</div>
+				<div class="image-container">
+					<img
+						src="https://lh3.googleusercontent.com/pw/AL9nZEUugEpOYzJJZI4nlVWhz712d5OGEENzoQOTg_ojazljmm-LPUWu6Y8JB8wfDpWsLW96WGUGrYOYMNV-pVQ1wig_KoWV0Zx0MX08xFJP-eyYP6k_uvY565Y1F0aoyEtXPWAlt4vbPRxZ9E8gEpYvvsNU-A=w1663-h1092-no?authuser=0"
+					/>
+				</div>
+				<div class="image-container">
+					<img
+						src="https://lh3.googleusercontent.com/pw/AL9nZEUn5pYgYjAEo93r4youCMDlUm-wbzCfJGQc4xQobq1ZRkAfNiDTi50K7QmMEa06xkpMr7mJXKBPgilBNVKnrusWM1nOMhOt2y6U7AKArR5as1mODbFxGAfwms8F8DwmPcP5h_CIYZUusgw7ER_mw2xfCA=w1744-h1092-no?authuser=0"
+					/>
+				</div>
+				<div class="image-container">
+					<img
+						src="https://lh3.googleusercontent.com/pw/AL9nZEVzzFKARqNPH1lQN1n9nambo3RBY22PWApItTdECVTFMTp8tIlovlB-4xJQtcIvmS645pl62Rggi5trW0gwA0q-T40hukvVjH5olxIvbVlDYoeNr1c67QoYyQ9E-b2IrOaK1wF7pygpdP5Wz4PknArDog=w2018-h1092-no?authuser=0"
+					/>
+				</div>
+				<div class="image-container">
+					<img
+						src="https://lh3.googleusercontent.com/pw/AL9nZEXZD3mhhCXBio6C3GSDGllZLCrnvuYiIwx4sIcwLBeqVpWA2uCRqXJxZzEA8j31kKvri8cWoUjLlUm-LryPd2IWoWcqGPNV6TIM12Yh-mWuuJ--0SCR1fWSjnnOHL10aphuZuSxqKRK3KTFg3tmvFbP8A=w1580-h1092-no?authuser=0"
+					/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
